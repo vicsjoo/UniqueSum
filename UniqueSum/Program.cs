@@ -47,8 +47,7 @@ namespace UniqueSum
    
 
         private static void AllPermutations()
-        {
-            UILines();
+        {            
             for (int i = 0; i <= maxPets-1; i++)
             {
                 Console.WriteLine("{0,3} - {1:G}", i, (Pets)i);
@@ -62,6 +61,7 @@ namespace UniqueSum
                 string answer = Console.ReadLine();
                 if (answer == "H")
                 {
+                    UILines();
                     AllPermutations();
                     UILines();
                     answerparser();
