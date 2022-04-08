@@ -16,16 +16,14 @@ namespace UniqueSum
 
         }
         static int maxPets = (Enum.GetValues(typeof(Pets)).Cast<int>().Max())*2;
-        static string everyPet;
 
         static void Main(string[] args)
         {
-            Get_everyPet_String();
-            Console.WriteLine("-----------------------------------------------");
-            Console.WriteLine(everyPet);
-            Console.WriteLine("-----------------------------------------------");
+            UILines();
+            Console.WriteLine(EveryPet());
+            UILines();
             Console.WriteLine(String.Format("Please enter the sum of your desired pets, <{0}. Or enter H to have a list of all permutations.", maxPets));
-
+            UILines();
 
             answerparser();
 
@@ -35,16 +33,25 @@ namespace UniqueSum
 
         }
 
-        private static void Get_everyPet_String()
+        private static void UILines()
         {
+            Console.WriteLine("-----------------------------------------------------------------------------------------------------------------");
+        }
+
+        static string EveryPet()
+        {
+            string tmp = "";
             foreach (Pets pet in Enum.GetValues(typeof(Pets)))
             {
-                everyPet += String.Format("{0} = {1}. ", pet, ((int)pet));
+                tmp += String.Format("{0} = {1}. ", pet, ((int)pet));
             }
+            return tmp;
         }
+   
 
         private static void AllPermutations()
         {
+            UILines();
             for (int i = 0; i <= maxPets-1; i++)
             {
                 Console.WriteLine("{0,3} - {1:G}", i, (Pets)i);
@@ -59,6 +66,7 @@ namespace UniqueSum
                 if (answer == "H")
                 {
                     AllPermutations();
+                    return;
                 }
                 int answer_int = Int32.Parse(answer);
                 if (answer_int >= maxPets)
@@ -67,21 +75,25 @@ namespace UniqueSum
                 }
                 if (answer_int == 0)
                 {
+                    UILines();
                     Console.WriteLine("None");
+                    UILines();
                     return;
                 }
            
                                    
                
                 Pets myPets = (Pets)answer_int;
-                Console.WriteLine(myPets);
+                UILines();
+                Console.WriteLine(String.Format("{0} = {1}", myPets, answer_int));
 
 
             }
             catch (Exception)
             {
-
+                UILines();
                 Console.WriteLine(String.Format("The value must be a numerical sum, less than {0}.", maxPets )); ;
+                UILines();
                 answerparser();
             }
         }
