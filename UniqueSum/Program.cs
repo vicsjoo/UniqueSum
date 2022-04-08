@@ -63,6 +63,8 @@ namespace UniqueSum
                 if (answer == "H")
                 {
                     AllPermutations();
+                    UILines();
+                    answerparser();
                     return;
                 }
                 int answer_int = Int32.Parse(answer);
