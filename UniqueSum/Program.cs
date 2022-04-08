@@ -28,10 +28,6 @@ namespace UniqueSum
 
             answerparser();
 
-            Main(null);
-
-
-
         }
 
         private static void UILines()
@@ -79,7 +75,7 @@ namespace UniqueSum
                 Pets myPets = (Pets)answer_int;
                 UILines();
                 Console.WriteLine(String.Format("{0} = {1}", myPets, answer_int));
-
+                answerparser();
 
             }
             catch (Exception)
