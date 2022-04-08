@@ -8,14 +8,15 @@ namespace UniqueSum
         [Flags]
         enum Pets
         { 
+            None = 0,
             Dog = 1,
             Cat = 2,
             Duck = 4,
             Bunny = 8,
             Parrot = 16
-
         }
         static int maxPets = (Enum.GetValues(typeof(Pets)).Cast<int>().Max())*2;
+        
 
         static void Main(string[] args)
         {
@@ -73,15 +74,7 @@ namespace UniqueSum
                 {
                    throw new Exception();
                 }
-                if (answer_int == 0)
-                {
-                    UILines();
-                    Console.WriteLine("None");
-                    UILines();
-                    return;
-                }
-           
-                                   
+                                                  
                
                 Pets myPets = (Pets)answer_int;
                 UILines();
